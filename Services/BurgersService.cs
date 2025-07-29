@@ -31,4 +31,10 @@ public class BurgersService
         Burger burger = _repositiory.Update(id, update);
         return burger;
     }
+
+    internal Burger GetBurgerById(int id)
+    {
+        Burger burger = _repositiory.GetById(id);
+        return burger;
+    }
 }

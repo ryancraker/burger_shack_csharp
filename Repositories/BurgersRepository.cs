@@ -17,8 +17,9 @@ public class BurgersRepository : IRepository<Burger>
 
     public Burger GetById(int id)
     {
-        string sql = "";
-        return _db.QueryFirstOrDefault<Burger>(sql, new { id });
+        string sql = "SELECT * FROM burgers WHERE id = @Id";
+        Burger burger = _db.Query<Burger>(sql, new { Id = id }).SingleOrDefault();
+        return burger;
     }
 
     public Burger Create(Burger burgerData)
